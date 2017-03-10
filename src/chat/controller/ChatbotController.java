@@ -3,6 +3,7 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.ChatViewer;
+import chat.model.CTEC;
 
 public class ChatbotController
 {
@@ -79,6 +80,20 @@ public class ChatbotController
 	return answer;
 	}
 	
+	public void handleErrors(Exception currentException) {
+		chatView.displayMessage("An error has occured. Details follow.");
+		chatView.displayMessage(currentException.getMessage());
+	}
+	
+	public void useTwitter(String text){
+		twitterBot.sendTweet(text);
+	}
+	
+	public String searchTwitter(String userName){
+		String results = "The top word from user " + userName + " is: ";
+		results += twitterBot.getMostTweetedWord(userName);
+		return results;
+	}
 	/**
 	 * get the main GUI Frame
 	 * @return the chatFrame

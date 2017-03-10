@@ -81,7 +81,7 @@ public class CTEC
 		}
 	}
 	
-	public sendTweet(String textToTweet)
+	public void sendTweet(String textToTweet)
 	{
 		try {
 			twitterBot.updateStatus(textToTweet + " @ChatbotCTEC");
